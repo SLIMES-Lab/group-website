@@ -9,13 +9,21 @@
         <div class="container">
             <div class="row blog-masonry">
                 <div class="col-md-9 col-xs-12">
+                    <!-- POST -->
                     <article class="post">
                         <div class="post-thumbnail">
-                            <img src="{{ URL::to('/') }}/{{ $post->image }}"alt="{{ $post->title }}">
+                            <img src="{{ URL::to('/') }}/{{ $post->image }}" alt="{{ $post->title }}">
+                        </div>
+                        <div class="widget">
+                            <ul class="tags">
+                                @foreach ($matching_categories as $category)
+                                    <li><a href="/blogs/category/{{ $category->id }}">{{ $category->name }}</a></li>
+                                @endforeach
+                            </ul>
                         </div>
                         <div class="post-header">
-                            <div class="post-meta"> By
-                                @if ($post->user != null)
+                            <div class="post-meta">
+                                By @if ($post->user != null)
                                     @if ($post->user->is_alumni)
                                         <b><a href="/members/alumni/{{ $post->user->id }}">{{ $post->user->name }}</a></b>
                                     @else
@@ -23,46 +31,53 @@
                                     @endif
                                 @else
                                     <b>Anonymous</b>
-                                @endif
-                                , {{ \Carbon\Carbon::parse($post->publish_date)->format('j F, Y') }}
+                                @endif,
+                                {{ \Carbon\Carbon::parse($post->publish_date)->format('j F, Y') }}
                             </div>
-                            <h1 class="post-title">{{ $post->title }}</h1>
-                            @if ($post->subtitle != null)
-                                <h6>{{ $post->subtitle }}</h6>
-                            @endif
+                            <h2 class="single-post-title">{{ $post->title }}</h2>
                         </div>
                         <div class="post-content">
-                            {!! $post->description !!}
+                            @php
+                                $config = HTMLPurifier_Config::createDefault();
+                                $config->set('HTML.DefinitionID', 'enduser-customize.html tutorial');
+                                $purifier = new HTMLPurifier($config);
+                            @endphp
+                            {!! $purifier->purify(str_replace('<blockquote>', '<blockquote class="single-blockquote">', $post->description)) !!}
                         </div>
                     </article>
+                    <!-- /POST -->
                 </div>
                 <div class="col-md-3 col-xs-12">
                     <div class="widget">
-                        <h6 class="text-uppercase widget-title">Categories</h6>
-                        <ul class="tags">
-                            @foreach ($post->categories as $category)
-                                <li><a href="/blogs/category/{{ $category->id }}">{{ $category->name }}</a></li>
-                            @endforeach
-                        </ul>
+                        <form class="search-form" action="{{ route('search') }}" method="GET">
+                            <input class="form-control" placeholder="Search..." type="text" name="query">
+                            <button type="submit"><i class="ion-search"></i></button>
+                        </form>
                     </div>
                     <div class="widget">
                         <h6 class="text-uppercase widget-title">Recent Posts</h6>
                         <ul class="recent-posts">
-                            @foreach ($recent_posts as $recent_post)
-                                <li>
-                                    <a href="/blog/{{ $recent_post->id }}">
-                                        <div class="widget-posts-image"><img
-                                                src="{{ URL::to('/') }}/{{ $recent_post->image }}"
-                                                alt="{{ $recent_post->title }}">
+                            @foreach ($recent_posts as $post)
+                                <a href="/blog/{{ $post->id }}">
+                                    <li>
+                                        <div class="widget-posts-image">
+                                            <img src="{{ URL::to('/') }}/{{ $post->image }}" alt="{{ $post->title }}">
                                         </div>
                                         <div class="widget-posts-body">
-                                            <h6 class="widget-posts-title">{{ $recent_post->title }}</h6>
+                                            <h6 class="widget-posts-title">{{ $post->title }}</h6>
                                             <div class="widget-posts-meta">
-                                                {{ \Carbon\Carbon::parse($recent_post->publish_date)->format('j F, Y') }}
-                                            </div>
+                                                {{ \Carbon\Carbon::parse($post->publish_date)->format('j F, Y') }}</div>
                                         </div>
-                                    </a>
-                                </li>
+                                    </li>
+                                </a>
+                            @endforeach
+                        </ul>
+                    </div>
+                    <div class="widget">
+                        <h6 class="text-uppercase widget-title">All Categories</h6>
+                        <ul class="tags">
+                            @foreach ($categories as $category)
+                                <li><a href="/blogs/category/{{ $category->id }}">{{ $category->name }}</a></li>
                             @endforeach
                         </ul>
                     </div>

@@ -32,9 +32,6 @@
                     </div>
                 @endforeach
             </div>
-            <div class="view-more mt-20 text-center">
-                <a class="btn btn-large" href="#">View More</a>
-            </div>
         </div>
     </div>
 

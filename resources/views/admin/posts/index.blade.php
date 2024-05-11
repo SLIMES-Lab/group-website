@@ -31,7 +31,7 @@
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $item->title }}</td>
-                                <td>{{ date('d-m-Y', strtotime($item->publish_date)) }}</td>;
+                                <td>{{ date('d-m-Y', strtotime($item->publish_date)) }}</td>
                                 <td>{{ $item->is_draft == true ? 'Draft' : 'Published' }}</td>
                                 <td>
                                     @foreach ($item->categories as $category)

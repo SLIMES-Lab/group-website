@@ -31,7 +31,7 @@
                                         </li>
                                         <li>
                                         <li><a href="/open-positions">Open Positions</a></li>
-                                        <li><a href="/photos">Photos</a></li>
+                                        <li><a href="/gallery">Gallery</a></li>
                                     </ul>
                                 </li>
                                 <li><a href="/blogs">Blogs</a></li>
@@ -62,7 +62,7 @@
                                             </ul>
                                         </li>
                                         <li><a href="/open-positions">Open Positions</a></li>
-                                        <li><a href="/photos">Photos</a></li>
+                                        <li><a href="/gallery">Gallery</a></li>
                                     </ul>
                                 </li>
                                 <li><a href="/blogs">Blogs</a></li>
