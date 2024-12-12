@@ -53,15 +53,19 @@
 
                     <div class="row">
                         <div class="col-md-6 mb-3">
-                            <label>Email</label>
+                            <label>Login Email <span class="text-danger fw-bold">*</span></label>
                             <input type="email" name="email" class="form-control" />
                         </div>
+                        <div class="col-md-6 mb-3">
+                            <label>Profile Email</label>
+                            <input type="email" name="profile_email" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="row">
                         <div class="col-md-6 mb-3">
                             <label>Google Scholar Link</label>
                             <input type="text" name="google_scholar" class="form-control" />
                         </div>
-                    </div>
-                    <div class="row">
                         <div class="col-md-6 mb-3">
                             <label>Website</label>
                             <input type="text" name="website" class="form-control" />

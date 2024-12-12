@@ -45,7 +45,7 @@
                         <label>Type <span class="text-danger fw-bold">*</span></label>
                         <select class="types form-control" name="item_type">
                             <option selected vlaue="research">Research Topic</option>
-                            <option vlaue="software">Software / Coding</option>
+                            <option vlaue="software">Software / Code / Dataset</option>
                         </select>
                     </div>
 

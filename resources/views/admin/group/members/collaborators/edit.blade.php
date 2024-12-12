@@ -52,7 +52,7 @@
                                 class="form-control" />
                         </div>
                         <div class="col-md-6 mb-3">
-                            <label>Email</label>
+                            <label>Profile Email</label>
                             <input type="email" name="email" value="{{ $collaborator->email }}" class="form-control" />
                         </div>
                     </div>

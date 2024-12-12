@@ -3,7 +3,7 @@
 
 @section('content')
 
-    @include('frontend.components.breadcrumb', ['pagetitle' => 'Research Area'])
+    @include('frontend.components.breadcrumb', ['pagetitle' => 'Research Topic'])
 
     <div class="basic-portfolio-area ptb-90">
         <div class="container">

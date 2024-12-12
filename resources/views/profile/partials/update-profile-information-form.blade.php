@@ -32,7 +32,7 @@
             </div>
 
             <div class="flex-1">
-                <x-input-label for="email" :value="__('Email')" />
+                <x-input-label for="email" :value="__('Login Email')" />
                 <x-text-input disabled id="email" name="email" type="email" class="mt-1 block w-full"
                     :value="old('email', $user->email)" autocomplete="username" />
                 <x-input-error class="mt-2" :messages="$errors->get('email')" />
@@ -50,6 +50,12 @@
             <img id="newImg" src="#" alt="New Image" class="mt-1 mb-3"
                 style="display: none; height: 150px; width: auto;" />
             <input type="file" name="photo" class="form-control mt-1" id="imgInp" />
+        </div>
+        <div class="flex-1">
+            <x-input-label for="profile_email" :value="__('Profile Email')" />
+            <x-text-input id="profile_email" name="profile_email" type="email" class="mt-1 block w-full"
+                :value="old('profile_email', $user->profile_email)" autocomplete="username" />
+            <x-input-error class="mt-2" :messages="$errors->get('profile_email')" />
         </div>
         <div class="flex flex-col sm:flex-row sm:space-x-6">
             <div class="flex-1">

@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', 'Add New Research area')
+@section('title', 'Add New Research Topic')
 
 @section('content')
     <div class="container-fluid px-4">
@@ -14,7 +14,7 @@
                 @if (session('message'))
                     <div class="alert alert-success" id="alertMessage">{{ session('message') }}</div>
                 @endif
-                <h5>Research Areas</h5>
+                <h5>Research Topics</h5>
                 <table class="table table-bordered">
                     <thead>
                         <tr>
@@ -71,7 +71,7 @@
                         @endforeach
                     </tbody>
                 </table>
-                <h5>Software / Codes</h5>
+                <h5>Software / Code / Dataset</h5>
                 <table class="table table-bordered">
                     <thead>
                         <tr>
@@ -84,7 +84,7 @@
                     </thead>
                     <tbody>
                         @foreach ($areas as $item)
-                            @if ($item->item_type == 'Software / Coding')
+                            @if ($item->item_type == 'Software / Code / Dataset')
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $item->title }}</td>

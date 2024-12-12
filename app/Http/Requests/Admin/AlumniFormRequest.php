@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests\Admin;
 
+use App\Models\Alumni;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class AlumniFormRequest extends FormRequest
 {
@@ -22,8 +24,8 @@ class AlumniFormRequest extends FormRequest
     public function rules(): array
     {
         $rules = [
-
-            'email' => 'nullable|string|email|max:255',
+            'profile_email' =>
+            ['nullable', 'string', 'email', 'max:255', Rule::unique(Alumni::class)->ignore($this->user()->id)],
             'google_scholar' => 'nullable|string|max:255',
             'website' => 'nullable|string|max:255',
             'image' => 'nullable|mimes:jpeg,jpg,png,avif,webp|dimensions:min_width=100,ratio=1/1|max:1024',
@@ -35,12 +37,14 @@ class AlumniFormRequest extends FormRequest
                 'name' => 'required|string|max:255',
                 'title' => 'required|string|max:255',
                 'type' => 'required|string|max:255',
+                'email' => ['required', 'string', 'email', 'max:255', Rule::unique(Alumni::class)->ignore($this->user()->id)],
             ];
         } else {
             $rules += [
                 'name' => 'sometimes|required|string|max:255',
                 'title' => 'sometimes|required|string|max:255',
                 'type' => 'sometimes|required|string|max:255',
+                'email' => ['sometimes', 'string', 'email', 'max:255', Rule::unique(Alumni::class)->ignore($this->user()->id)],
             ];
         }
 

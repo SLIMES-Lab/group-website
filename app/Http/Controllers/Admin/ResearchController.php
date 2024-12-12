@@ -46,7 +46,7 @@ class ResearchController extends Controller
         }
         $area->save();
 
-        return redirect('admin/pages/research-areas')->with('message', 'Research Area Added Successfully');
+        return redirect('admin/pages/research-areas')->with('message', 'Research Topic Added Successfully');
     }
 
     public function edit($area_id)
@@ -81,7 +81,7 @@ class ResearchController extends Controller
 
         $area->update();
 
-        return redirect('admin/pages/research-areas')->with('message', 'Research Area Updated Successfully');
+        return redirect('admin/pages/research-areas')->with('message', 'Research Topic Updated Successfully');
     }
 
     public function destroy($area_id)
@@ -93,9 +93,9 @@ class ResearchController extends Controller
                 unlink($oldImagePath);
             }
             $area->delete();
-            return redirect('admin/pages/research-areas')->with('message', 'Research Area Deleted Successfully');
+            return redirect('admin/pages/research-areas')->with('message', 'Research Topic Deleted Successfully');
         } else {
-            return redirect('admin/pages/research-areas')->with('message', 'No Research Area Id Found');
+            return redirect('admin/pages/research-areas')->with('message', 'No Research Topic Id Found');
         }
     }
 }

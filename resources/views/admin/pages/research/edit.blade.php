@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', 'Edit Research Area')
+@section('title', 'Edit Research Topic')
 @section('styles')
     <link href="{{ asset('assets/css/select2.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/summernote-lite.min.css') }}" rel="stylesheet">
@@ -9,7 +9,7 @@
     <div class="container-fluid px-4">
         <div class="card mt-4">
             <div class="card-header">
-                <h4 class="">Edit Research Area</h4>
+                <h4 class="">Edit Research Topic</h4>
             </div>
             <div class="card-body">
                 @if ($errors->any())
@@ -48,8 +48,9 @@
                         <select class="categories form-control" name="item_type">
                             <option value="Research Topic" {{ $area->item_type == 'Research Topic' ? 'selected' : '' }}>
                                 Research Topic</option>
-                            <option value="Software / Coding"
-                                {{ $area->item_type == 'Software / Coding' ? 'selected' : '' }}>Software / Coding
+                            <option value="Software / Code / Dataset"
+                                {{ $area->item_type == 'Software / Code / Dataset' ? 'selected' : '' }}>Software / Code /
+                                Dataset
                             </option>
                         </select>
                     </div>

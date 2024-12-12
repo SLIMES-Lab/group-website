@@ -13,6 +13,7 @@ class Alumni extends Model
         'type',
         'title',
         'email',
+        'profile_email',
         'google_scholar',
         'website',
         'image',

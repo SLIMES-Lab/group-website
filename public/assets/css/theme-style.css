@@ -3095,7 +3095,7 @@ blockquote.single-blockquote p {
 
 }
 
-#map {
+#lsbu-map {
     height: 420px;
     width: 100%
 }
@@ -3644,6 +3644,10 @@ a#scrollUp {
     .about-text>p {
         padding-right: 0px;
     }
+
+    .association-logos {
+        width: 150px !important;
+    }
 }
 
 @media (max-width: 767px) {
@@ -3658,5 +3662,11 @@ a#scrollUp {
     .ras-calltoaction .row .col-sm-4 {
         margin: 0 auto;
         width: fit-content !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .association-logos {
+        width: 75px !important;
     }
 }

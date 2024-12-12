@@ -81,7 +81,7 @@
                             data-bs-parent="#sidenavAccordionPages">
                             <nav class="sb-sidenav-menu-nested nav">
                                 <a class="nav-link {{ url()->current() == url('admin/pages/research-areas') ? 'active' : '' }}"
-                                    href="{{ url('admin/pages/research-areas') }}">Research Areas</a>
+                                    href="{{ url('admin/pages/research-areas') }}">All Areas</a>
                                 <a class="nav-link {{ url()->current() == url('admin/pages/research-areas/add-area') ? 'active' : '' }}"
                                     href="{{ url('admin/pages/research-areas/add-area') }}">Add New Area</a>
                             </nav>

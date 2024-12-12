@@ -17,7 +17,7 @@
                         @endforeach
                     </div>
                 @endif
-                <form method="POST" action="{{ route('admin.invitation-codes.store') }}">
+                <form method="POST" action="{{ route('admin.invitation-codes.store') }}" onsubmit="convertEmailToLowercase()">
                     @csrf
 
                     <div class="mb-3">
@@ -33,4 +33,11 @@
             </div>
         </div>
     </div>
+
+    <script>
+        function convertEmailToLowercase() {
+            var emailInput = document.getElementById('email');
+            emailInput.value = emailInput.value.toLowerCase();
+        }
+    </script>
 @endsection

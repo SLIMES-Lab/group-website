@@ -53,6 +53,7 @@ class AlumniController extends Controller
         $member->type = $data['type'];
         $member->title = $data['title'];
         $member->email = $data['email'];
+        $member->profile_email = $data['profile_email'];
         $member->google_scholar = $data['google_scholar'];
         $member->website = $data['website'];
         $member->current_position = $data['current_position'];
@@ -87,22 +88,16 @@ class AlumniController extends Controller
             Image::make($file)->save($filepath, 60, 'webp');
             $alumni->image = $filepath;
         }
-        $alumni->name = $data['name'];
+        // $alumni->name = $data['name'];
         $alumni->type = $data['type'];
         $alumni->title = $data['title'];
-        $alumni->email = $data['email'];
+        // $alumni->email = $data['email'];
+        $alumni->profile_email = $data['profile_email'];
         $alumni->google_scholar = $data['google_scholar'];
         $alumni->website = $data['website'];
         $alumni->current_position = $data['current_position'];
 
         $alumni->update();
-
-        // Update corresponding user details if exists
-        if ($user) {
-            $user->name = $data['name'];
-            $user->email = $data['email'];
-            $user->update();
-        }
 
         return redirect('admin/group/members/alumni')->with('message', 'Alumni Member Updated Successfully');
     }

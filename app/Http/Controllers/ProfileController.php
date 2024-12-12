@@ -29,6 +29,7 @@ class ProfileController extends Controller
     {
         $user = $request->user();
         $data = $request->validated();
+        // dd($data);
         if ($request->hasFile('photo')) {
             $file = $request->file('photo');
             $filename = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME)
@@ -44,6 +45,7 @@ class ProfileController extends Controller
             Image::make($file)->save(public_path() . $filepath, 60, 'webp');
             $user->photo = $filepath;
         }
+        $user->profile_email = $data['profile_email'] ?? null;
         $user->type = $data['type'] ?? null;
         $user->position = $data['position'] ?? null;
         $user->research_title = $data['research_title'] ?? null;

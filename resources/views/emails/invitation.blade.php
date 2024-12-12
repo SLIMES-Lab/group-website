@@ -24,11 +24,12 @@
 <p>Let me know if you have any trouble with the registration process!</p>
 
 <p>Best regards,</p>
-<p><strong>Dr John Buckeridge</strong></p>
-<p><strong>Senior Lecturer</strong></p>
-<p>School of Engineering - Electrical & Electronic Engineering</p>
-<p>London South Bank University,</p>
-<p>103 Borough Road, London SE1 0AA</p>
-<p>Tel.: +44 (0)20 7815 7420</p>
-<p>Email: <a href="mailto:j.buckeridge@lsbu.ac.uk">j.buckeridge@lsbu.ac.uk</a></p>
-<p>URL: <a href="https://jbuckeridge.github.io/">jbuckeridge.github.io</a></p>
+<p><strong>Dr John Buckeridge</strong></br>
+    <strong>Senior Lecturer</strong></br>
+    T703, Mechanical Engineering - School of Engineering</br>
+    London South Bank University,</br>
+    103 Borough Road, London SE1 0AA</br>
+    Tel.: +44 (0)20 7815 7420</br>
+    Email: <a href="mailto:j.buckeridge@lsbu.ac.uk">j.buckeridge@lsbu.ac.uk</a></br>
+    Website: <a href="https://jbuckeridge.github.io/">jbuckeridge.github.io</a>
+</p>
