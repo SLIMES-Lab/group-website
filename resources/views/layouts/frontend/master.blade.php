@@ -10,7 +10,23 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- favicon icon -->
-    <link rel="icon" href="assets/image/favicon.png">
+    <link rel="icon" href="assets/images/favicon.png">
+
+    {{-- Set default og tags for preliminary SEO --}}
+    <meta property="og:sitename" content="SLIMES Lab">
+    <meta property="og:title" content="SLIMES Lab">
+    <meta property="og:description"
+        content="SLIMES Lab | Pioneering material simulations and next-gen electronic property explorations.">
+    <meta property="og:image" content="{{ asset('assets/images/favicon.png') }}">
+    <meta property="og:image:width" content="100">
+    <meta property="og:image:height" content="100">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:alt" content="SLIMES Lab">
+    <meta property="twitter:image" content="{{ asset('assets/images/favicon.png') }}">
+    <meta property="twitter:title" content="SLIMES Lab">
+    <meta property="twitter:description"
+        content="SLIMES Lab | Pioneering material simulations and next-gen electronic property explorations.">
+
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -34,10 +50,7 @@
 
 <body>
     {{-- @if (request()->is('/')) --}}
-    @include('frontend.components.frontend-home-navbar', ['isHome' => request()->is('/')])
-    {{-- @else
-        @include('frontend.components.frontend-navbar')
-    @endif --}}
+    @include('frontend.components.frontend-navbar', ['isHome' => request()->is('/')])
     <main>
         @yield('content')
     </main>

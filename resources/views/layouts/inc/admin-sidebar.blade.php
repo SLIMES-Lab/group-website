@@ -12,13 +12,13 @@
                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseNews"
                     aria-expanded="false" aria-controls="collapseNews">
                     <div class="sb-nav-link-icon"><i class="fa-solid fa-newspaper"></i></div>
-                    Blogs
+                    News
                     <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                 </a>
                 <div class="collapse" id="collapseNews" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
                         <a class="nav-link" href="{{ url('admin/add-post') }}">Add Post</a>
-                        <a class="nav-link" href="{{ url('admin/posts') }}">All Blogs</a>
+                        <a class="nav-link" href="{{ url('admin/posts') }}">All News</a>
                     </nav>
                 </div>
 
@@ -86,7 +86,7 @@
                                     href="{{ url('admin/pages/research-areas/add-area') }}">Add New Area</a>
                             </nav>
                         </div>
-                        <a class="nav-link" href="{{ url('admin/pages/contact/1') }}">Contact</a>
+                        {{-- <a class="nav-link" href="{{ url('admin/pages/contact/1') }}">Contact</a> --}}
                     </nav>
                 </div>
             </div>

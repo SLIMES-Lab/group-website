@@ -1,19 +1,19 @@
 @extends('layouts.frontend.master')
-@section('title', 'Searched Blogs')
+@section('title', 'Searched News')
 
 @section('content')
 
-    @include('frontend.components.breadcrumb', ['pagetitle' => 'Searched Blogs'])
+    @include('frontend.components.breadcrumb', ['pagetitle' => 'Searched News'])
     <div class="basic-blo-area ptb-90">
         <div class="container">
             <div class="area-title text-center">
-                <h2>Blogs matched with the keyword '<b>{{ $query }}</b>'</h2>
+                <h2>News matched with the keyword '<b>{{ $query }}</b>'</h2>
             </div>
             <div class="row">
                 <div class="col-md-9 col-sm-9">
                     <!-- POST -->
                     @if (count($results) == 0)
-                        <h3>No blogs found...</h3>
+                        <h3>No News found...</h3>
                     @else
                         @foreach ($results as $post)
                             <article class="post">
@@ -41,7 +41,7 @@
                                                 {{ \Carbon\Carbon::parse($post->publish_date)->format('j F, Y') }}
                                             </div>
                                             <h2 class="post-title"><a
-                                                    href="/blog/{{ $post->id }}">{{ $post->title }}</a>
+                                                    href="/news/{{ $post->id }}">{{ $post->title }}</a>
                                             </h2>
                                         </div>
                                         <div class="post-content">
@@ -50,7 +50,7 @@
                                                 $first_20_words = implode(' ', array_slice($words, 0, 20));
                                             @endphp
                                             <p>{!! $first_20_words !!}...</p>
-                                            <a class="post-more" href="/blog/{{ $post->id }}">Read more &rarr;</a>
+                                            <a class="post-more" href="/news/{{ $post->id }}">Read more &rarr;</a>
                                         </div>
                                     </div>
                                 </div>
@@ -73,7 +73,7 @@
                         <h6 class="text-uppercase widget-title">Categories</h6>
                         <ul class="tags">
                             @foreach ($categories as $category)
-                                <li><a href="/blogs/category/{{ $category->id }}">{{ $category->name }}</a></li>
+                                <li><a href="/news/category/{{ $category->id }}">{{ $category->name }}</a></li>
                             @endforeach
                         </ul>
                     </div>

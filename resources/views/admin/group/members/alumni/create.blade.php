@@ -36,10 +36,11 @@
                     <div class="mb-3 d-flex flex-column">
                         <label>Course <span class="text-danger fw-bold">*</span></label>
                         <select class="types form-control" name="type">
-                            <option selected vlaue="bachelors">Bachelor's</option>
-                            <option vlaue="masters">Masters</option>
-                            <option vlaue="phd">PhD</option>
-                            <option vlaue="postdoc">Post Doc</option>
+                            <option selected value="bachelors">Bachelor's</option>
+                            <option value="masters">Masters</option>
+                            <option value="phd">PhD</option>
+                            <option value="postdoc">Post Doc</option>
+                            <option value="pi">Principal Investigator</option>
                         </select>
                     </div>
 

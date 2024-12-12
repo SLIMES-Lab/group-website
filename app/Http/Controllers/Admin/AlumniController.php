@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\AlumniFormRequest;
 use App\Models\Alumni;
+use App\Models\User;
 use Intervention\Image\Facades\Image;
+use Illuminate\Support\Str;
 
 class AlumniController extends Controller
 {
@@ -23,13 +25,18 @@ class AlumniController extends Controller
     public function store(AlumniFormRequest $request)
     {
         $data = $request->all();
-        $name = $data['name'];
-        $type = $data['type'];
-        $title = $data['title'];
-        $email = $data['email'];
-        $google_scholar = $data['google_scholar'];
-        $website = $data['website'];
-        $current_position = $data['current_position'];
+
+        // Create a user for the alumni without sending an email
+        $user = User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            // Set a random password that the user won't know
+            'password' => bcrypt(Str::random(16)),
+        ]);
+        $user->is_alumni = 1; // Set the user as an alumni
+        $user->save();
+
+        // Now create the alumni entry
         $member = new Alumni;
         if ($request->hasfile('image')) {
             $file = $request->file('image');
@@ -40,13 +47,15 @@ class AlumniController extends Controller
             Image::make($file)->save($filepath, 60, 'webp');
             $member->image = $filepath;
         }
-        $member->name = $name;
-        $member->type = $type;
-        $member->title = $title;
-        $member->email = $email;
-        $member->google_scholar = $google_scholar;
-        $member->website = $website;
-        $member->current_position = $current_position;
+
+        $member->id = $user->id; // Use the same ID as the user
+        $member->name = $data['name'];
+        $member->type = $data['type'];
+        $member->title = $data['title'];
+        $member->email = $data['email'];
+        $member->google_scholar = $data['google_scholar'];
+        $member->website = $data['website'];
+        $member->current_position = $data['current_position'];
         $member->save();
 
         return redirect('admin/group/members/alumni')->with('message', 'New Alumni Member Added Successfully');
@@ -62,6 +71,9 @@ class AlumniController extends Controller
     {
         $data = $request->validated();
         $alumni = Alumni::find($alumni_id);
+
+        // Find the corresponding user
+        $user = User::find($alumni_id);
 
         if ($request->hasfile('image')) {
             if ($alumni->image && file_exists(public_path($alumni->image))) {
@@ -85,6 +97,13 @@ class AlumniController extends Controller
 
         $alumni->update();
 
+        // Update corresponding user details if exists
+        if ($user) {
+            $user->name = $data['name'];
+            $user->email = $data['email'];
+            $user->update();
+        }
+
         return redirect('admin/group/members/alumni')->with('message', 'Alumni Member Updated Successfully');
     }
 
@@ -94,6 +113,11 @@ class AlumniController extends Controller
         if ($alumni) {
             if ($alumni->image && file_exists(public_path($alumni->image))) {
                 unlink(public_path($alumni->image));
+            }
+            // Find and delete the corresponding user
+            $user = User::find($alumni_id);
+            if ($user) {
+                $user->delete();
             }
             $alumni->delete();
             return redirect('admin/group/members/alumni')->with('message', 'Alumni Member Deleted Successfully');

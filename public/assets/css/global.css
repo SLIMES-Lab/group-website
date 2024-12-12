@@ -750,3 +750,12 @@
 .transparent-bg {
     background: transparent;
 }
+
+
+/* Media Query */
+@media (max-width: 767px) {
+    .team-item-image img {
+        width: 275px !important;
+        height: auto;
+    }
+}

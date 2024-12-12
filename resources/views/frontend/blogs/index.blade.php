@@ -1,15 +1,15 @@
 @extends('layouts.frontend.master')
-@section('title', 'Blogs')
+@section('title', 'News')
 
 @section('content')
 
-    @include('frontend.components.breadcrumb', ['pagetitle' => 'Blogs'])
+    @include('frontend.components.breadcrumb', ['pagetitle' => 'News'])
     <div class="basic-blo-area ptb-90">
         <div class="container">
             <div class="area-title text-center">
-                <h2>Our Blog</h2>
-                <p>Welcome to our research group's blog! Here you'll find insightful articles and updates on our latest
-                    research projects. Explore our blog to stay informed and engaged with our work.</p>
+                <h2>Our News</h2>
+                <p>Stay up-to-date with our latest research and activities by exploring our news section. Here you'll find
+                    insightful articles, updates, and more.</p>
             </div>
             <div class="row">
                 <div class="col-md-9 col-sm-9">
@@ -39,7 +39,7 @@
                                             @endif,
                                             {{ \Carbon\Carbon::parse($post->publish_date)->format('j F, Y') }}
                                         </div>
-                                        <h2 class="post-title"><a href="/blog/{{ $post->id }}">{{ $post->title }}</a>
+                                        <h2 class="post-title"><a href="/news/{{ $post->id }}">{{ $post->title }}</a>
                                         </h2>
                                     </div>
                                     <div class="post-content">
@@ -56,7 +56,7 @@
                                         @endphp
                                         <p>{!! $first_20_words !!}...</p>
                                     </div>
-                                    <a class="post-more" href="/blog/{{ $post->id }}">Read more &rarr;</a>
+                                    <a class="post-more" href="/news/{{ $post->id }}">Read more &rarr;</a>
                                 </div>
                             </div>
                         </article>
@@ -105,7 +105,7 @@
                         <h6 class="text-uppercase widget-title">All Categories</h6>
                         <ul class="tags">
                             @foreach ($categories as $category)
-                                <li><a href="/blogs/category/{{ $category->id }}">{{ $category->name }}</a></li>
+                                <li><a href="/news/category/{{ $category->id }}">{{ $category->name }}</a></li>
                             @endforeach
                         </ul>
                     </div>

@@ -36,18 +36,28 @@
                     <div class="mb-3 d-flex flex-column">
                         <label>Course <span class="text-danger fw-bold">*</span></label>
                         <select class="types form-control" name="type">
-                            <option value="Bachelor's" {{ $alumni->type == "Bachelor's" ? 'selected' : '' }}>Bachelor's
+                            <option value="bachelors" {{ $alumni->type == 'bachelors' ? 'selected' : '' }}>Bachelor's
                             </option>
-                            <option value="Masters" {{ $alumni->type == 'Masters' ? 'selected' : '' }}>Masters</option>
-                            <option value="PhD" {{ $alumni->type == 'PhD' ? 'selected' : '' }}>PhD</option>
-                            <option value="Post Doc" {{ $alumni->type == 'Post Doc' ? 'selected' : '' }}>Post Doc</option>
+                            <option value="masters" {{ $alumni->type == 'masters' ? 'selected' : '' }}>Masters</option>
+                            <option value="phd" {{ $alumni->type == 'phd' ? 'selected' : '' }}>PhD</option>
+                            <option value="postdoc" {{ $alumni->type == 'postdoc' ? 'selected' : '' }}>Post Doc</option>
+                            <option value="pi" {{ $alumni->type == 'pi' ? 'selected' : '' }}>Principal Investigator
+                            </option>
                         </select>
                     </div>
 
                     <div class="mb-3 d-flex flex-column" style="width: fit-content">
                         <label>Avatar (Min width 100 px, ratio 1:1)</label>
-                        @if ($alumni->image)
-                            <img src="{{ URL::to('/') }}/{{ $alumni->image }}" class="mt-1 mb-3"
+                        @php
+                            $imagePath = $alumni->image;
+                            if ($imagePath) {
+                                if (substr($imagePath, 0, 1) === '/') {
+                                    $imagePath = substr($imagePath, 1);
+                                }
+                            }
+                        @endphp
+                        @if ($imagePath)
+                            <img src="{{ URL::to('/') }}/{{ $imagePath }}" class="mt-1 mb-3"
                                 alt="{{ $alumni->name }} Avatar" id="previousImg" width="150px" height="150px">
                         @else
                             <img src="{{ URL::to('/') }}/assets/images/avatar-default.png" alt="Default Image"

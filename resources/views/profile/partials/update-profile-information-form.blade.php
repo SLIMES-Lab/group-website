@@ -64,7 +64,8 @@
                     <option value="postdoc" {{ old('type', $user->type) == 'postdoc' ? 'selected' : '' }}>Post Doc
                     </option>
                     @if (Auth::user()->is_super_admin)
-                        <option value="guide" {{ old('type', $user->type) == 'guide' ? 'selected' : '' }}>Supervisor
+                        <option value="guide" {{ old('type', $user->type) == 'guide' ? 'selected' : '' }}>Principal
+                            Investigator</option>
                         </option>
                     @endif
                 </select>

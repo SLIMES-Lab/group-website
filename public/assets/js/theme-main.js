@@ -30,12 +30,25 @@
 
     win.on('scroll', function () {
         var links = document.querySelectorAll('.other .basic-menu li a');
+        var largeLogoDefault = document.querySelector('#large-logo-default');
+        var largeLogoWhite = document.querySelector('#large-logo-white');
+        var smallLogoDefault = document.querySelector('#small-logo-default');
+        var smallLogoWhite = document.querySelector('#small-logo-white');
+
+
         if ($(this).scrollTop() > 1) {
 
             $('#sticky-header').addClass("sticky");
             links.forEach(function (link) {
                 link.style.color = '#232332';
             });
+            if (window.innerWidth > 768) {
+                largeLogoWhite.style.display = 'none';
+                largeLogoDefault.style.display = 'block';
+            } else {
+                smallLogoWhite.setAttribute('style', 'display: none !important');
+                smallLogoDefault.style.display = 'block';
+            }
         }
 
         else {

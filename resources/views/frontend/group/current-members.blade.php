@@ -1,117 +1,91 @@
 @extends('layouts.frontend.master')
-@section('title', 'Blogs')
+@section('title', 'Team')
 @section('content')
 
-    @include('frontend.components.breadcrumb', ['pagetitle' => 'Blogs'])
+    @include('frontend.components.breadcrumb', ['pagetitle' => 'Team'])
     <div class="basic-team-area gray-bg pt-90 pb-60">
         <div class="container">
             <div class="area-title text-center">
                 <h2>Our Team</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi tempora veritatis nemo aut ea iusto
-                    eos est expedita, quas ab adipisci.</p>
+                <p>A close-knit team of dedicated scholars united in the pursuit of groundbreaking research and novel
+                    insights.</p>
             </div>
-            <div class="row">
-                <div class="col-sm-6 col-md-3">
-                    <div class="team-item">
-                        <div class="team-item-image">
-                            <img src="https://buffer.com/library/content/images/2023/10/free-images.jpg" alt="team member">
-                            <div class="team-item-detail">
-                                <h5 class="team-item-title">Whats Up!</h5>
-                                <p>A wonderful serenity has taken possession of my entire soul, like these sweet
-                                    mornings.</p>
-                                <div class="team-social-icon">
-                                    <a href="#"><i class="ion-social-facebook"></i></a>
-                                    <a href="#"><i class="ion-social-googleplus"></i></a>
-                                    <a href="#"><i class="ion-social-instagram"></i></a>
-                                    <a href="#"><i class="ion-social-dribbble"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <h4 class="team-item-name">Bardiman Smith</h4>
-                        <span class="team-item-role">Designer</span>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-3">
-                    <div class="team-item">
-                        <div class="team-item-image">
-                            <img src="https://buffer.com/library/content/images/2023/10/free-images.jpg" alt="team member">
-                            <div class="team-item-detail">
-                                <h5 class="team-item-title">Whats Up!</h5>
-                                <p>A wonderful serenity has taken possession of my entire soul, like these sweet
-                                    mornings.</p>
-                                <div class="team-social-icon">
-                                    <a href="#"><i class="ion-social-facebook"></i></a>
-                                    <a href="#"><i class="ion-social-googleplus"></i></a>
-                                    <a href="#"><i class="ion-social-instagram"></i></a>
-                                    <a href="#"><i class="ion-social-dribbble"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <h4 class="team-item-name">Bardiman Smith</h4>
-                        <span class="team-item-role">Developer</span>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-3">
-                    <div class="team-item">
-                        <div class="team-item-image">
-                            <img src="https://buffer.com/library/content/images/2023/10/free-images.jpg" alt="team member">
-                            <div class="team-item-detail">
-                                <h5 class="team-item-title">Whats Up!</h5>
-                                <p>A wonderful serenity has taken possession of my entire soul, like these sweet
-                                    mornings.</p>
-                                <div class="team-social-icon">
-                                    <a href="#"><i class="ion-social-facebook"></i></a>
-                                    <a href="#"><i class="ion-social-googleplus"></i></a>
-                                    <a href="#"><i class="ion-social-instagram"></i></a>
-                                    <a href="#"><i class="ion-social-dribbble"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <h4 class="team-item-name">Jon Envert</h4>
-                        <span class="team-item-role">Head Of Idea</span>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-3">
-                    <div class="team-item">
-                        <div class="team-item-image">
-                            <img src="https://buffer.com/library/content/images/2023/10/free-images.jpg" alt="team member">
-                            <div class="team-item-detail">
-                                <h5 class="team-item-title">Whats Up!</h5>
-                                <p>A wonderful serenity has taken possession of my entire soul, like these sweet
-                                    mornings.</p>
-                                <div class="team-social-icon">
-                                    <a href="#"><i class="ion-social-facebook"></i></a>
-                                    <a href="#"><i class="ion-social-googleplus"></i></a>
-                                    <a href="#"><i class="ion-social-instagram"></i></a>
-                                    <a href="#"><i class="ion-social-dribbble"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <h4 class="team-item-name">Jon Harris</h4>
-                        <span class="team-item-role">Head Of Idea</span>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-3">
-                    <div class="team-item">
-                        <div class="team-item-image">
-                            <img src="https://buffer.com/library/content/images/2023/10/free-images.jpg" alt="team member">
-                            <div class="team-item-detail">
-                                <h5 class="team-item-title">Whats Up!</h5>
-                                <p>A wonderful serenity has taken possession of my entire soul, like these sweet
-                                    mornings.</p>
-                                <div class="team-social-icon">
-                                    <a href="#"><i class="ion-social-facebook"></i></a>
-                                    <a href="#"><i class="ion-social-googleplus"></i></a>
-                                    <a href="#"><i class="ion-social-instagram"></i></a>
-                                    <a href="#"><i class="ion-social-dribbble"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <h4 class="team-item-name">Jon Harris</h4>
-                        <span class="team-item-role">Head Of Idea</span>
-                    </div>
-                </div>
+            @php
+                $memberTypes = [
+                    'principalInvestigators' => 'guide',
+                    'postDocs' => 'postdoc',
+                    'phdStudents' => 'phd',
+                    'mastersStudents' => 'masters',
+                    'bachelorsStudents' => 'bachelors',
+                ];
+                foreach ($memberTypes as $variable => $type) {
+                    $$variable = $currentMembers->filter(function ($member) use ($type) {
+                        return $member->type == $type;
+                    });
+                }
+                $lastPrincipalInvestigator = $principalInvestigators->last();
+                $memberGroups = [
+                    'Post Docs' => $postDocs,
+                    'PhD Students' => $phdStudents,
+                    'Masters Students' => $mastersStudents,
+                    'Bachelors Students' => $bachelorsStudents,
+                ];
+            @endphp
+            <div class="mb-20 text-center">
+                <h4><b>Princpal Investigator</b></h4>
             </div>
+            <div class="row row-portfolio">
+                @if (!$lastPrincipalInvestigator)
+                    <p>Principal Investigator Will Be Updated Soon!!!</p>
+                @else
+                    @foreach ($principalInvestigators as $member)
+                        <div class="col-xs-10 col-sm-5 col-md-4">
+                            <a href="https://jbuckeridge.github.io/" target="_blank">
+                                <div class="team-item">
+                                    <div class="team-item-image">
+                                        @if ($lastPrincipalInvestigator->photo)
+                                            <img src="{{ URL::to('/') }}{{ $lastPrincipalInvestigator->photo }}"
+                                                alt="{{ $lastPrincipalInvestigator->name }} Avatar">
+                                        @else
+                                            <img src="{{ URL::to('/') }}/assets/images/avatar-default.png"
+                                                alt="Default Image">
+                                        @endif
+                                    </div>
+                                    <h4 class="team-item-name">{{ $lastPrincipalInvestigator->name }}</h4>
+                                </div>
+                            </a>
+                        </div>
+                    @break
+                @endforeach
+            @endif
         </div>
+        @foreach ($memberGroups as $title => $members)
+            @if ($members->count())
+                <div class="mb-20 pt-20 text-center">
+                    <h4><b>{{ $title }}</b></h4>
+                </div>
+                <div class="row row-portfolio">
+                    @foreach ($members as $member)
+                        <div class="col-sm-5 col-md-3 col-lg-2">
+                            <a href="/members/current/{{ $member->id }}">
+                                <div class="team-item">
+                                    <div class="team-item-image">
+                                        @if ($member->photo)
+                                            <img src="{{ URL::to('/') }}{{ $member->photo }}"
+                                                alt="{{ $member->name }} Avatar">
+                                        @else
+                                            <img src="{{ URL::to('/') }}/assets/images/avatar-default.png"
+                                                alt="Default Image">
+                                        @endif
+                                    </div>
+                                    <h4 class="team-item-name">{{ $member->name }}</h4>
+                                </div>
+                            </a>
+                        </div>
+                    @endforeach
+                </div>
+            @endif
+        @endforeach
     </div>
+</div>
 @endsection

@@ -687,6 +687,10 @@ h1.breadcrumb-2 {
 
 }
 
+.logo-long {
+    width: 200px;
+}
+
 .header-transparent .logo h4 {
 
     color: #fff;
@@ -956,6 +960,10 @@ h1.breadcrumb-2 {
 
 }
 
+.single-member-div {
+    height: unset !important;
+}
+
 .menu-area .menu-p-right ul {
 
     left: auto;
@@ -1011,7 +1019,7 @@ h1.breadcrumb-2 {
 }
 
 .basic-space {
-    height: 78px
+    height: 80px
 }
 
 .header-transparent .basic-menu li a {
@@ -2091,10 +2099,16 @@ nav.nav-menu-show {
     color: #999
 }
 
-.post-thumbnail>img {
+.post-thumbnail-single>img {
 
     width: 100%;
 
+}
+
+.post-thumbnail>img {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
 }
 
 /* 8. blog */
@@ -2935,25 +2949,13 @@ blockquote.single-blockquote p {
 
 
 
-.team-item-image:hover::after {
-
-    background-color: rgba(255, 255, 255, .9)
-}
-
-
-
-.team-item-image:hover .team-item-detail {
-
-    opacity: 1
-}
-
-
 
 .team-item-image img {
 
-    max-width: 100%;
+    width: 100%;
 
-    height: auto
+    height: auto;
+    border-radius: 50%;
 }
 
 .team-item-detail {
@@ -3049,6 +3051,14 @@ blockquote.single-blockquote p {
     background: #999
 }
 
+.single-member-image img {
+
+    width: 200px;
+
+    height: auto;
+
+}
+
 /* 11. breadcrumb */
 
 /* .basic-breadcrumb-area {} */
@@ -3115,8 +3125,9 @@ blockquote.single-blockquote p {
 .about-text>p {
 
     line-height: 26px;
-
+    padding-right: 50px;
     margin-bottom: 25px;
+    text-align: justify;
 
 }
 
@@ -3625,9 +3636,21 @@ a#scrollUp {
         justify-content: center;
         align-items: center;
     }
+
+    .about-text>h5 {
+        padding-top: 30px;
+    }
+
+    .about-text>p {
+        padding-right: 0px;
+    }
 }
 
 @media (max-width: 767px) {
+    .navbar-logo-short {
+        width: 250px;
+    }
+
     .ras-calltoaction {
         width: 260px;
     }

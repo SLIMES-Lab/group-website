@@ -1,9 +1,9 @@
 @extends('layouts.frontend.master')
-@section('title', 'Blog Post')
+@section('title', 'News Post')
 
 @section('content')
 
-    @include('frontend.components.breadcrumb', ['pagetitle' => 'Blog Post'])
+    @include('frontend.components.breadcrumb', ['pagetitle' => 'News Post'])
 
     <div class="basic-blog-area pt-90 pb-20">
         <div class="container">
@@ -11,13 +11,13 @@
                 <div class="col-md-9 col-xs-12">
                     <!-- POST -->
                     <article class="post">
-                        <div class="post-thumbnail">
+                        <div class="post-thumbnail-single">
                             <img src="{{ URL::to('/') }}/{{ $post->image }}" alt="{{ $post->title }}">
                         </div>
-                        <div class="widget">
+                        <div class="widget pt-20">
                             <ul class="tags">
                                 @foreach ($matching_categories as $category)
-                                    <li><a href="/blogs/category/{{ $category->id }}">{{ $category->name }}</a></li>
+                                    <li><a href="/news/category/{{ $category->id }}">{{ $category->name }}</a></li>
                                 @endforeach
                             </ul>
                         </div>
@@ -58,7 +58,7 @@
                         <h6 class="text-uppercase widget-title">Recent Posts</h6>
                         <ul class="recent-posts">
                             @foreach ($recent_posts as $post)
-                                <a href="/blog/{{ $post->id }}">
+                                <a href="/news/{{ $post->id }}">
                                     <li>
                                         <div class="widget-posts-image">
                                             <img src="{{ URL::to('/') }}/{{ $post->image }}" alt="{{ $post->title }}">
@@ -77,7 +77,7 @@
                         <h6 class="text-uppercase widget-title">All Categories</h6>
                         <ul class="tags">
                             @foreach ($categories as $category)
-                                <li><a href="/blogs/category/{{ $category->id }}">{{ $category->name }}</a></li>
+                                <li><a href="/news/category/{{ $category->id }}">{{ $category->name }}</a></li>
                             @endforeach
                         </ul>
                     </div>

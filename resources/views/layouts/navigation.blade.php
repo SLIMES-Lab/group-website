@@ -6,7 +6,8 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ url('/') }}">
-                        <a class="navbar-brand ps-3 mr-5" href="/">GroupName</a>
+                        <a class="navbar-brand ps-3 mr-5" href="/"><img src="/assets/images/SLIMES-logo.svg"
+                                alt="SLIMES Logo" width="150px;"></a>
                     </a>
                 </div>
             </div>
@@ -35,7 +36,7 @@
                             {{ __('Profile') }}
                         </x-dropdown-link>
                         <x-dropdown-link :href="route('user.posts')">
-                            {{ __('Blogs') }}
+                            {{ __('News') }}
                         </x-dropdown-link>
                         @if (Auth::user()->role_as == 1)
                             <x-dropdown-link :href="url('admin/dashboard')">

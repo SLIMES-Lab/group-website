@@ -25,7 +25,7 @@
                 </h2>
 
                 <p>{{ $homedata['subheading'] }}</p>
-                <a class="btn btn-large" id="aboutButton" href="#">About Us</a>
+                <a class="btn btn-large" id="aboutButton" href="/about">About Us</a>
             </div>
         </div>
     </div>
@@ -45,7 +45,7 @@
                                     <h3><span id="papers" class="ras-counter-number">{{ $homedata['papers'] }}</span>
                                         <span class="ras-counter-postfix">+</span>
                                     </h3>
-                                    <p class="ras-counter-label">Research Papers</p>
+                                    <p class="ras-counter-label">Articles</p>
                                 </div>
                             </div>
                         </div>
@@ -71,7 +71,7 @@
                                     <h3><span id="group_members"
                                             class="ras-counter-number">{{ $homedata['group_members'] }}</span> <span
                                             class="ras-counter-postfix">+</span></h3>
-                                    <p class="ras-counter-label">Group Members</p>
+                                    <p class="ras-counter-label">Members</p>
                                 </div>
                             </div>
                         </div>
@@ -136,18 +136,17 @@
     <div class="row" id="john-container">
         <div class="col-md-6">
             <div class="ras-features-image bordered-image ">
-                <img src="https://peoplefinder.lsbu.ac.uk/download/599ca2240dc729643f8f94c491eed5702bf1dfdaa9d4dc0caaf7257ab2dd390d/2294829/webdisplay/w600/h592/John%20Buckeridge.jpg"
-                    alt="our-features">
+                <img src="{{ URL::to('/') }}/assets/images/home/{{ $homedata['john_image'] }}" alt="John Image">
             </div>
         </div>
         <div class="col-md-6">
-            <div class="ras-features-details" id="john-data">
+            <div class="ras-features-details pr-90" id="john-data">
                 <h3 class="capitalize">Dr. John Buckeridge</h3>
                 <div>
                     {!! $homedata['john_details'] !!}
                 </div>
                 <div class="features-btn text-left">
-                    <a href="#" class="btn">Know More</a>
+                    <a href="https://jbuckeridge.github.io/" target="_blank" class="btn">Know More</a>
                 </div>
             </div>
         </div>
@@ -156,9 +155,9 @@
     <div class="basic-blog-area ptb-90">
         <div class="container">
             <div class="area-title text-center">
-                <h2>Recent Blogs</h2>
-                <p>Check out our latest thoughts and perspectives on topics related to our research, captured in these brief
-                    but insightful blog posts.</p>
+                <h2>Recent News</h2>
+                <p>Stay up-to-date with our latest research and activities by exploring our news section. Here you'll find
+                    insightful articles, updates, and more.</p>
             </div>
             <div class="row blog-masonry" style="position: relative; height: 869.656px;">
                 @foreach ($posts as $post)
@@ -173,9 +172,11 @@
                                     By
                                     @if ($post->user != null)
                                         @if ($post->user->is_alumni)
-                                            <b>{{ $post->user->name }}</b>
+                                            <b><a
+                                                    href="/members/alumni/{{ $post->user->id }}">{{ $post->user->name }}</a></b>
                                         @else
-                                            <b><a href="#">{{ $post->user->name }}</a></b>
+                                            <b><a
+                                                    href="/members/current/{{ $post->user->id }}">{{ $post->user->name }}</a></b>
                                         @endif
                                     @else
                                         <b>Anonymous</b>
@@ -183,11 +184,11 @@
                                     ,
                                     {{ \Carbon\Carbon::parse($post->publish_date)->format('j F, Y') }}
                                 </div>
-                                <h2 class="post-title"><a href="/{{ $post->id }}">{{ $post->title }}</a></h2>
+                                <h2 class="post-title"><a href="/news/{{ $post->id }}">{{ $post->title }}</a></h2>
                             </div>
                             <div class="post-content">
                                 <p>{{ $post->subtitle }}</p>
-                                <a class="post-more" href="/post/{{ $post->id }}">Read more →</a>
+                                <a class="post-more" href="/news/{{ $post->id }}">Read more →</a>
                             </div>
                         </article>
                         <!-- /POST -->
@@ -197,7 +198,7 @@
 
         </div>
         <div class="features-btn text-left">
-            <a href="/blogs" class="btn">Explore More</a>
+            <a href="/news" class="btn">Explore More</a>
         </div>
     </div>
 @endsection

@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\ResearchController;
 use App\Http\Controllers\Admin\ResearchPositionController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Frontend\FrontAboutController;
+use App\Http\Controllers\Frontend\FrontContactController;
 use App\Http\Controllers\Frontend\FrontGroupController;
 use App\Http\Controllers\Frontend\FrontHomeController;
 use App\Http\Controllers\Frontend\FrontPostController;
@@ -51,17 +52,22 @@ Route::get('/', [FrontHomeController::class, 'index']);
 Route::get('/about', [FrontAboutController::class, 'index']);
 Route::get('/research', [FrontResearchController::class, 'index']);
 Route::get('/publications', [FrontPublicationController::class, 'index']);
+Route::get('/contact', [FrontContactController::class, 'index']);
 // Group section
 Route::get('/members/current', [FrontGroupController::class, 'showCurrentMembers']);
 Route::get('/members/alumni', [FrontGroupController::class, 'showAlumni']);
+Route::get('/members/current/{user_id}', [FrontGroupController::class, 'showSingleUser']);
 Route::get('/members/collaborators', [FrontGroupController::class, 'showCollaborators']);
+Route::get('/members/collaborators/{collaborator_id}', [FrontGroupController::class, 'showSingleCollaborator']);
+Route::get('/members/alumni/{alumni_id}', [FrontGroupController::class, 'showSingleAlumni']);
 Route::get('/open-positions', [FrontGroupController::class, 'showOpenPositions']);
-Route::get('/gallery', [FrontGroupController::class, 'showGallery']);
+Route::get('/gallery', [FrontGroupController::class, 'showAllAlbums']);
+Route::get('/album/{album_id}', [FrontGroupController::class, 'showSingleAlbum']);
 // Blog section
-Route::get('/blogs', [FrontPostController::class, 'index']);
-Route::get('/blog/search', [FrontPostController::class, 'search'])->name('search');
-Route::get('/blog/{post_id}', [FrontPostController::class, 'showSinglePost']);
-Route::get('blogs/category/{category_id}', [FrontPostController::class, 'showPostsByCategory']);
+Route::get('/news', [FrontPostController::class, 'index']);
+Route::get('/news/search', [FrontPostController::class, 'search'])->name('search');
+Route::get('/news/{post_id}', [FrontPostController::class, 'showSinglePost']);
+Route::get('news/category/{category_id}', [FrontPostController::class, 'showPostsByCategory']);
 
 // Admin
 Route::prefix('admin')->middleware(['auth', 'isAdmin'])->namespace('Admin')->group(function () {

@@ -1,13 +1,13 @@
 @extends('layouts.frontend.master')
-@section('title', 'Category Wise Blogs')
+@section('title', 'Category Wise News')
 
 @section('content')
 
-    @include('frontend.components.breadcrumb', ['pagetitle' => 'Category Wise Blogs'])
+    @include('frontend.components.breadcrumb', ['pagetitle' => 'Category Wise News'])
     <div class="basic-blo-area ptb-90">
         <div class="container">
             <div class="area-title text-center">
-                <h2>Blogs with category '<b>{{ $category->name }}</b>'</h2>
+                <h2>News with category '<b>{{ $category->name }}</b>'</h2>
             </div>
             <div class="row">
                 <div class="col-md-9 col-sm-9">
@@ -37,7 +37,7 @@
                                             @endif,
                                             {{ \Carbon\Carbon::parse($post->publish_date)->format('j F, Y') }}
                                         </div>
-                                        <h2 class="post-title"><a href="/blog/{{ $post->id }}">{{ $post->title }}</a>
+                                        <h2 class="post-title"><a href="/news/{{ $post->id }}">{{ $post->title }}</a>
                                         </h2>
                                     </div>
                                     <div class="post-content">
@@ -54,7 +54,7 @@
                                         @endphp
                                         <p>{!! $first_20_words !!}...</p>
                                     </div>
-                                    <a class="post-more" href="/blog/{{ $post->id }}">Read more &rarr;</a>
+                                    <a class="post-more" href="/news/{{ $post->id }}">Read more &rarr;</a>
                                 </div>
                             </div>
                         </article>
@@ -73,7 +73,7 @@
                         <h6 class="text-uppercase widget-title">Other Categories</h6>
                         <ul class="tags">
                             @foreach ($other_categories as $category)
-                                <li><a href="/blogs/category/{{ $category->id }}">{{ $category->name }}</a></li>
+                                <li><a href="/news/category/{{ $category->id }}">{{ $category->name }}</a></li>
                             @endforeach
                         </ul>
                     </div>

@@ -7,22 +7,21 @@
 
     <div class="about-us-area pt-90 pb-20">
         <div class="container">
-            <div class="row">
+            <div class="row justify-content-center">
+                <!-- PHOTO - Now centered on all screen sizes -->
+                <div class="col-md-6 text-center">
+                    <div class="about-img">
+                        <img src="{{ URL::to('/') }}/assets/images/about/{{ $about['group_photo'] }}" alt="Group Photo"
+                            class="img-fluid mx-auto">
+                    </div>
+                </div>
                 <!-- ABOUT TEXT -->
                 <div class="col-md-6">
-                    <div class="about-text">
-                        <h5>Hello, We're GroupName</h5>
+                    <div class="about-text text-start">
+                        <h5>Hello, We're <b>SLIMES</b>...</h5>
                         {!! $about->description !!}
                     </div>
                 </div>
-                <!-- /ABOUT TEXT -->
-                <!-- PHOTO -->
-                <div class="col-md-6">
-                    <div class="about-img hidden-sm hidden-xs">
-                        <img src="{{ URL::to('/') }}/assets/images/about/{{ $about['group_photo'] }}" alt="Group Photo">
-                    </div>
-                </div>
-                <!-- /PHOTO -->
             </div>
         </div>
     </div>

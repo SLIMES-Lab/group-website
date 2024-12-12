@@ -19,7 +19,7 @@
     <li>Click "Register" to complete setup</li>
 </ol>
 
-<p>Once registered, you will be able to update your profile and write blogs for our group website.</p>
+<p>Once registered, you will be able to update your profile and write posts for our group website.</p>
 
 <p>Let me know if you have any trouble with the registration process!</p>
 

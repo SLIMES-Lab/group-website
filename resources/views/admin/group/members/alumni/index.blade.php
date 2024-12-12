@@ -28,12 +28,20 @@
                     </thead>
                     <tbody>
                         @foreach ($alumni as $member)
+                            @php
+                                $imagePath = $member->image;
+                                if ($imagePath) {
+                                    if (substr($imagePath, 0, 1) === '/') {
+                                        $imagePath = substr($imagePath, 1);
+                                    }
+                                }
+                            @endphp
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $member->name }}</td>
                                 <td>
-                                    @if ($member->image)
-                                        <img src="{{ URL::to('/') }}/{{ $member->image }}" class="mt-1 mb-3"
+                                    @if ($imagePath)
+                                        <img src="{{ URL::to('/') }}/{{ $imagePath }}" class="mt-1 mb-3"
                                             alt="{{ $member->name }} Avatar" style="height: 50px; width: auto">
                                     @else
                                         <img src="{{ URL::to('/') }}/assets/images/avatar-default.png" alt="Default Image"
